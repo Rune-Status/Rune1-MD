@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import R1_MD.Calculator.CalculatorButton;
 import org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader;
 
 import com.R1.Client;
@@ -50,6 +51,7 @@ public class start extends com.R1.Main {
             }
 
             button2.setText("Calculator");
+            button2.addActionListener(new CalculatorButton());
             panel.add(label);
             panel.add(button2);
             frame.add(panel);
