@@ -10,6 +10,8 @@ import org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader;
 import com.R1.Client;
 import com.R1.Main;
 import R1_M.Version;
+import com.R1.a.b.d;
+
 
 
 public class R_Loader extends com.R1.Main {
@@ -22,16 +24,14 @@ public class R_Loader extends com.R1.Main {
   //private static Stream Stream = null;
     private static Field interfaces = null;
 
-    public static void R_Loader(String[]args) {
+    public static void R_Loader(String[] args) {
 
         try {
         	System.out.println("Found Main is running!");
         	
         	
         	Version VersionObject = new Version();
-        	Client ClientObject = new Client();
-        	Main MainObject = new Main();
-        	
+
         	System.out.println(Client.class.getName());
         	System.out.println(Client.class.getSimpleName());
         	System.out.println(Client.class.getClassLoader());
@@ -64,17 +64,15 @@ public class R_Loader extends com.R1.Main {
             }for (Field fld1 : fields) {
             	
                 fld1.setAccessible(true);
+                if(fld1.getType().toString().contains("com.R1.Client")){
+                    c = (Client) fld1.get(d.class);
+                }
                 
                 //System.out.println("field :"+fld1.getName());
                 //System.out.println("type :"+fld1.getType());
                 
-                if (fld1.getType().toString().contains("com.R1.a.c.d")) {
-                	
-                    interfaces = fld1;
-                    
-                }
-                
             }
+            Client.main(args);
 
             System.out.println("Found " + methods.length + " methods in client and " + fields.length + " fields");
 
