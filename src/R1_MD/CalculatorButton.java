@@ -1,5 +1,4 @@
-package R1_MD.Calculator;
-
+package R1_MD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
