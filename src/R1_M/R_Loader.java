@@ -1,26 +1,19 @@
-package R1_MD;
+package R1_M;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import R1_MD.CalculatorButton;
 import org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader;
-
 import com.R1.Client;
 import com.R1.Main;
+import R1_M.Version;
 
-public class start extends com.R1.Main {
-    private static final JButton ActionEvent = null;
+
+public class R_Loader extends com.R1.Main {
+
     private static Client c = null;
     private static Method[] methods = null;
     private static Field[] fields = null;
@@ -29,37 +22,31 @@ public class start extends com.R1.Main {
   //private static Stream Stream = null;
     private static Field interfaces = null;
 
-    public static void main(String[] args) {
+    public static void R_Loader(String[]args) {
 
         try {
-            System.out.println("Found Main is running!");
+        	System.out.println("Found Main is running!");
+        	
+        	
+        	Version VersionObject = new Version();
+        	Client ClientObject = new Client();
+        	Main MainObject = new Main();
+        	
+        	System.out.println(Client.class.getName());
+        	System.out.println(Client.class.getSimpleName());
+        	System.out.println(Client.class.getClassLoader());
+        	System.out.println(Client.class.getModifiers());
+        	System.out.println(Client.class.getClass());
+
+        	System.out.println(VersionObject.R1_MD + VersionObject.R1_MD_version);
+        	System.out.println(VersionObject.R1 + VersionObject.R1_version);
+        	System.out.println("");
+        
             Class<Client> clazz = (Class<Client>) Client.class;
 
-            //START----JFRAME----
-            JFrame frame = new JFrame("Rune1 Utilities");
-            
-            JPanel panel = new JPanel();
-            panel.setLayout(new FlowLayout());
-            JLabel label = new JLabel("");
-            
-            JButton CalculatorButton = new JButton();
-            
-            CalculatorButton.setText("Calculator");
-            CalculatorButton.addActionListener(new CalculatorButton());
-            
-            panel.add(label);
-            panel.add(CalculatorButton);
-            
-            frame.add(panel);
-            frame.setSize(300, 300);
-            frame.setLocationRelativeTo(null);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-            //----JFRAME----END
-            //LOADS RUNE 1 CLIENT
             methods = clazz.getDeclaredMethods();
             fields = clazz.getDeclaredFields();
-            Client.main(new String[]{"10", "0", "lowmem", "members", "32"});
+        
 
             for (int i = 0; i < fields.length; i++) {
             	
